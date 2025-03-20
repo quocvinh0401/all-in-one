@@ -13,7 +13,7 @@ module "eks" {
 
   vpc_id             = module.vpc.id
   cluster_name       = "all-in-one"
-  subnet_ids         = module.vpc.private_subnets_ids
+  subnet_ids         = module.vpc.public_subnets_ids
   kubernetes_version = "1.32"
 
   desired_size = 2

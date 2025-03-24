@@ -9,7 +9,7 @@ spec:
     chart:
         spec:
             chart: kube-prometheus-stack
-            version: "51.x.x" # Use the latest compatible version (e.g., 51.1.0 as of March 2025)
+            version: "70.2.1" # Use the latest compatible version (e.g., 51.1.0 as of March 2025)
             sourceRef:
                 kind: HelmRepository
                 name: prometheus-community

@@ -39,3 +39,8 @@ variable "instance_type" {
   description = "Instance type"
   type        = string
 }
+
+variable "sg_id" {
+  description = "ID of the security group"
+  type        = string
+}

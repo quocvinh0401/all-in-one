@@ -70,5 +70,10 @@ resource "aws_eks_node_group" "group" {
     max_size     = var.max_size
     min_size     = var.min_size
   }
+
+  remote_access {
+    source_security_group_ids = [var.sg_id]
+  }
+
   depends_on = [aws_iam_role_policy_attachment.node_policy]
 }

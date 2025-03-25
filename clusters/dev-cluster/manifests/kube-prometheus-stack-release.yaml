@@ -21,7 +21,7 @@ spec:
                 storageSpec:
                     volumeClaimTemplate:
                         spec:
-                            storageClassName: gp2 # Use the appropriate EKS storage class (e.g., gp2 or gp3)
+                            storageClassName: gp3 # Use the appropriate EKS storage class (e.g., gp2 or gp3)
                             accessModes: ["ReadWriteOnce"]
                             resources:
                                 requests:
@@ -30,6 +30,6 @@ spec:
             adminPassword: "admin1234" # Set a custom admin password for Grafana
             persistence:
                 enabled: true
-                storageClassName: gp2
+                storageClassName: gp3
                 accessModes: ["ReadWriteOnce"]
                 size: 5Gi

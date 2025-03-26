@@ -72,8 +72,25 @@ resource "aws_eks_node_group" "group" {
   }
 
   remote_access {
+    ec2_ssh_key = aws_key_pair.eks_ssh_key.key_name
     source_security_group_ids = [var.sg_id]
   }
 
   depends_on = [aws_iam_role_policy_attachment.node_policy]
+}
+
+resource "tls_private_key" "eks_ssh_key" {
+  algorithm = "RSA"
+  rsa_bits  = 4096
+}
+
+resource "local_file" "private_key" {
+  content  = tls_private_key.eks_ssh_key.private_key_pem
+  filename = "${path.module}/eks-worker-key.pem"
+  file_permission = "0600"
+}
+
+resource "aws_key_pair" "eks_ssh_key" {
+  key_name   = "eks-worker-key"
+  public_key = tls_private_key.eks_ssh_key.public_key_openssh
 }

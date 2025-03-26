@@ -22,3 +22,9 @@ module "eks" {
   instance_type = "t3.medium"
   sg_id = module.vpc.sg_id
 }
+
+module "iam" {
+  source = "./modules/iam"
+  oidc_id = module.eks.oidc_id
+  url = module.eks.url
+}

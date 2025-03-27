@@ -5,6 +5,7 @@ metadata:
 spec:
   selector: {{- include "common.labels" . | nindent 4 }}
   ports:
-  - port: {{ .Values.port }}
-    targetPort: {{ .Values.port }}
-    protocol: TCP
+    - port: {{ .Values.port }}
+      targetPort: {{ .Values.port }}
+      protocol: TCP
+  type: {{ .Values.type }}
